@@ -1,0 +1,79 @@
+/** @format */
+
+.analytics-container {
+	display: grid;
+	grid-template-columns: 0.5fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	width: 100%;
+	height: 100%;
+	margin: 2rem;
+	gap: 2rem;
+}
+
+.users-container {
+	grid-column: 1/2;
+	background-color: #112c4d;
+	border-radius: 10px;
+}
+
+.users-container h2 {
+	color: white;
+	padding: 1rem;
+	text-align: center;
+	padding-bottom: 1.5rem;
+}
+
+.user-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.user__status--analytics {
+	height: 7rem;
+}
+
+.user-status-name--analytics {
+	display: grid;
+	grid-template-columns: 0.5fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	padding-left: 1rem;
+	gap: 0.5rem;
+}
+
+.monitoring__name--analytics {
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+
+.username {
+	grid-row: 1/2;
+	grid-column: 1/-1;
+}
+.age {
+	grid-row: 2/3;
+	grid-column: 1/2;
+}
+
+.gender {
+	grid-row: 2/3;
+	grid-column: 2/3;
+}
+
+/* Graph section */
+.graph-container {
+	grid-column: 2/4;
+	background-color: #112c4d;
+	border-radius: 10px;
+}
+
+.chart-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding-top: 10rem;
+}
+
+/* svg > rect {
+	fill: #ffffff00;
+} */

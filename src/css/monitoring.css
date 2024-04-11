@@ -1,0 +1,175 @@
+/** @format */
+.flex {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.location-container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.location__logo {
+	width: 10rem;
+	position: absolute;
+	bottom: 0;
+	z-index: 999;
+}
+
+.location__body-container {
+	height: 100%;
+	display: grid;
+	grid-template-columns: 2fr 0.8fr;
+	grid-template-rows: 2fr 1fr;
+	margin: 2rem;
+	gap: 2rem;
+}
+
+.leaflet-container {
+	grid-row: 1/2;
+	grid-column: 1/2;
+	height: 100%;
+	border-radius: 1rem;
+	border: 2px solid #112c4d;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.user__status {
+	grid-row: 1/-1;
+	grid-column: 2/3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 2px solid #0e233e;
+	border-radius: 1rem;
+	background-color: #112c4d;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+	padding-left: 2rem;
+	padding-top: 1rem;
+}
+
+.user__info {
+	grid-row: 2/3;
+	grid-column: 1/2;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 1rem;
+	border: 2px solid #0e233e;
+	border-radius: 1rem;
+	background-color: #112c4d;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+	gap: 1rem;
+}
+
+.user__header {
+	font-size: 2.2rem;
+	color: #fff;
+	margin-bottom: 1rem;
+
+	justify-self: flex-start;
+	align-self: flex-start;
+}
+
+.vital__signs {
+	border-right: 2px solid #fff;
+}
+
+.monitoring__p {
+	color: #fff;
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+/* Progress Bar */
+.progress-bar {
+	width: 80%;
+	height: 1rem;
+	background-color: #f0f0f0;
+	border-radius: 10px;
+	overflow: hidden;
+	margin-bottom: 1rem;
+}
+
+.progress-bar__fill {
+	height: 100%;
+	background-color: #32cd32; /* Green color */
+	transition: width 0.5s ease-in-out; /* Smooth transition */
+}
+
+.monitoring__value {
+	color: #ececec;
+	font-size: 1.5rem;
+	margin-left: 70%;
+	margin-top: -1rem;
+}
+
+.monitoring__unit {
+	color: #aaaaaa;
+	font-size: 1.2rem;
+}
+
+/* User info */
+.user__indo-container {
+	display: grid;
+	margin-top: 1rem;
+	grid-template-columns: 1fr 1fr;
+	row-gap: 2.5rem;
+}
+
+.monitoring__data-container {
+	display: flex;
+	gap: 1rem;
+}
+
+.monitoring__data {
+	color: #fff;
+}
+
+.heartRate__icon {
+	width: 2.5rem;
+}
+
+/* User Status */
+.user__status-container {
+	display: flex;
+	gap: 1rem;
+	background-color: #32404b;
+	width: 90%;
+	height: 8rem;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+	margin-bottom: 3rem;
+	cursor: pointer;
+}
+
+.user-status-left {
+	width: 5%;
+	height: 100%;
+	background-color: green;
+}
+.user-status-right {
+	width: 95%;
+}
+.user__status--name-container {
+	display: flex;
+	gap: 1rem;
+	padding-top: 0.5rem;
+}
+.user__status--data-container {
+	display: flex;
+	width: 100%;
+	gap: 4rem;
+	margin-top: 0.5rem;
+}
+
+.user__status--icon {
+	width: 3.5rem;
+}
+
+.monitoring__name {
+	color: #fff;
+	font-size: 1.8rem;
+	font-weight: 500;
+}
