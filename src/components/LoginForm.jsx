@@ -1,42 +1,13 @@
-/**
- * eslint-disable react/prop-types
- *
- * @format
- */
-
 /** @format */
+import styles from './LoginForm.module.css';
 
 import { useEffect, useState } from 'react';
-import './css/login.css';
-import waterImage from './assets/login-water.png';
-import logo from './assets/Logo.png';
 import { useNavigate } from 'react-router-dom';
 
 const loginAPI =
 	'https://fyp-aquaguard-django.onrender.com/aquaguard/api/login/';
 
-// eslint-disable-next-line react/prop-types
-export default function Login({ onLogIn }) {
-	return (
-		<div className='login__page'>
-			<div className='form-container'>
-				<div>
-					<img src={logo} alt='logo' className='form-logo' />
-					<h1 className='heading-primary login__heading'>Log In</h1>
-					<blockquote className='login__paragraph'>
-						&quot;where technology meets tranquility, ensuring a safer aquatic
-						experience for all.&quot;
-					</blockquote>
-					<Form onLogIn={onLogIn} />
-				</div>
-				<img src={waterImage} alt='water moving' className='water-image' />
-			</div>
-		</div>
-	);
-}
-
-// eslint-disable-next-line react/prop-types
-function Form({ onLogIn }) {
+function LoginForm({ onLogIn, isLoading, setIsLoading }) {
 	const [email, setEmail] = useState('');
 	const [pass, setPass] = useState('');
 	const navigate = useNavigate();
@@ -59,6 +30,7 @@ function Form({ onLogIn }) {
 				password: pass,
 			};
 			try {
+				setIsLoading(true);
 				const response = await fetch(loginAPI, {
 					method: 'POST',
 					headers: {
@@ -80,6 +52,8 @@ function Form({ onLogIn }) {
 			} catch (error) {
 				// Handle any network errors or other errors that occur during the login process
 				console.error('There was a problem with the login:', error);
+			} finally {
+				setIsLoading(false);
 			}
 		}
 
@@ -87,28 +61,30 @@ function Form({ onLogIn }) {
 	}
 
 	return (
-		<form className='login-form' onSubmit={onSubmit}>
+		<form className={styles['login-form']} onSubmit={onSubmit}>
 			<input
 				type='text'
 				placeholder='Username'
-				className='login-input'
+				className={styles['login-input']}
 				required
 				onChange={e => setEmail(e.target.value)}
 			/>
 			<input
 				type='password'
 				placeholder='Password'
-				className='login-input'
+				className={styles['login-input']}
 				required
 				onChange={e => setPass(e.target.value)}
 			/>
-			<a href='#' className='link link__password'>
+			<a href='/' className={`link ${styles.link__password}`}>
 				Forgot password?
 			</a>
-			<hr className='line' />
+			<hr className={styles.line} />
 			<button className='btn btn__login'>
 				Log in <span>&#8594;</span>
 			</button>
 		</form>
 	);
 }
+
+export default LoginForm;

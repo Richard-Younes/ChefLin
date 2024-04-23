@@ -1,0 +1,27 @@
+/** @format */
+
+.navbar__links {
+	margin-top: 0.5rem;
+	display: flex;
+	gap: 4rem;
+	margin-left: 2rem;
+	margin-bottom: 0.5rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.navbar__link {
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.8rem;
+}
+
+.navbar__link:global(.active) {
+	color: #3d859f;
+	transform: scale(1.05);
+	transform-origin: center bottom;
+}
+
+.navbar__logo {
+	font-size: 2.5rem;
+}

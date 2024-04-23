@@ -1,0 +1,32 @@
+/** @format */
+
+.navbar__profile {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	text-align: center;
+}
+
+.profile-icon {
+	width: 4rem;
+	margin-right: 1rem;
+	cursor: pointer;
+}
+
+:global(.popup-content) {
+	margin: auto;
+	background: #ccccccff;
+	padding: 5px 10px;
+	border-radius: 10px;
+}
+
+:global(.popup-arrow) {
+	color: #ccccccff;
+}
+:global(.log-out-text) {
+	font-weight: 500;
+	font-size: 1.6rem;
+	color: rgb(209, 36, 36);
+	cursor: pointer;
+}
