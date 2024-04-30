@@ -13,6 +13,8 @@
 .users-container {
 	grid-column: 1/2;
 	background-color: #112c4d;
+	height: 80%;
+	align-self: center;
 	border-radius: 10px;
 }
 
@@ -66,12 +68,16 @@
 	grid-column: 2/4;
 	background-color: #112c4d;
 	border-radius: 10px;
+	height: 80%;
+	align-self: center;
 }
 
 .chart-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	padding-top: 10rem;
+	padding-top: 5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 /* svg > rect {

@@ -4,8 +4,8 @@ import { usePosts } from '../contexts/PostProvider';
 import Spinner from './Spinner';
 import UserStatusInfo from './UserStatusInfo';
 
-function UserStatus({ isLoading }) {
-	const { data } = usePosts();
+function UserStatus() {
+	const { data, isLoading } = usePosts();
 
 	return (
 		<div className='user__status'>

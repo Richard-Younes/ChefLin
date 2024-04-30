@@ -17,11 +17,12 @@ function Map() {
 	};
 
 	const { data } = usePosts();
+	console.log(data);
 
-	const fakeLocation = [
-		[0.01, 0.02],
-		[-0.01, -0.01],
-	];
+	// const fakeLocation = [
+	// 	[0.01, 0.02],
+	// 	[-0.01, -0.01],
+	// ];
 
 	if (!data) {
 		return <Spinner />;
@@ -40,9 +41,9 @@ function Map() {
 				]}
 				url='../public/pool.jpg'
 			/>
-			{data.map((user, index) => (
-				<Marker position={fakeLocation[index]} key={user.id}>
-					<Popup>This is {user.full_name}</Popup>
+			{data.map(user => (
+				<Marker position={[user.latitude, user.longitude]} key={user.id}>
+					<Popup>{user.full_name}</Popup>
 				</Marker>
 			))}
 		</MapContainer>

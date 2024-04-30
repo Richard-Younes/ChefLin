@@ -7,19 +7,18 @@ import { useNavigate } from 'react-router-dom';
 const loginAPI =
 	'https://fyp-aquaguard-django.onrender.com/aquaguard/api/login/';
 
-function LoginForm({ onLogIn, isLoading, setIsLoading }) {
+function LoginForm({ setIsLoading, setIsLoggedIn }) {
 	const [email, setEmail] = useState('');
 	const [pass, setPass] = useState('');
 	const navigate = useNavigate();
 
-	const savedCredentials = localStorage.getItem('credentials');
-
+	const storedCredentials = localStorage.getItem('credentials');
 	useEffect(() => {
-		if (savedCredentials) {
-			onLogIn();
+		if (storedCredentials) {
+			setIsLoggedIn(true);
 			navigate('/monitoring');
 		}
-	}, [navigate, onLogIn, savedCredentials]);
+	}, []);
 
 	function onSubmit(e) {
 		e.preventDefault();
@@ -42,7 +41,9 @@ function LoginForm({ onLogIn, isLoading, setIsLoading }) {
 				if (response.ok) {
 					// If login is successful, save the credentials in local storage
 					console.log('Login successful!');
-					onLogIn();
+
+					localStorage.setItem('credentials', JSON.stringify(data));
+
 					navigate('/monitoring');
 				} else {
 					// If login fails, display an error message

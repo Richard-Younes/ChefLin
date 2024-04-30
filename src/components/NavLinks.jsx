@@ -13,9 +13,6 @@ function NavLinks() {
 			<NavLink to='/analytics' className={styles.navbar__link}>
 				Analytics
 			</NavLink>
-			<NavLink to='/camera-feed' className={styles.navbar__link}>
-				Camera Feed
-			</NavLink>
 			<NavLink to='/help' className={styles.navbar__link}>
 				Help
 			</NavLink>

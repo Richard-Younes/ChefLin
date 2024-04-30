@@ -10,30 +10,40 @@ function Graph() {
 		title: 'Heart Rate vs Time',
 		curveType: 'function',
 		legend: { position: 'bottom' },
-		backgroundColor: '#ccc',
 		colors: ['#112c4d'],
+		hAxis: { title: 'Time' },
+		vAxis: { title: 'Heart Rate' },
 	};
 	const options2 = {
 		title: 'Blood Oxygen Level vs Time',
 		curveType: 'function',
 		legend: { position: 'bottom' },
-		backgroundColor: '#ccc',
 		colors: ['#112c4d'],
+		hAxis: { title: 'Time' },
+		vAxis: { title: 'Blood Oxygen Level' },
 	};
+
+	function getHours(params) {
+		const parsedDate = new Date(params);
+		const hours = parsedDate.getHours();
+		return hours;
+	}
 
 	const user = data?.find(user => user.id === userId);
 	const vitalSigns = user?.vital_signs;
-	const heartRate = vitalSigns?.map((sign, index) => [
+	const heartRate = vitalSigns?.map(sign => [
+		getHours(sign.datetime_sampled),
 		Math.round(sign.heart_rate),
-		index,
 	]);
-	const bloodOxygenLevel = vitalSigns?.map((sign, index) => [
+	const bloodOxygenLevel = vitalSigns?.map(sign => [
+		getHours(sign.datetime_sampled),
 		Math.round(sign.spo2),
-		index,
 	]);
+	console.log(heartRate);
 
 	let heartRateData = [];
 	let bloodOxygenLevelData = [];
+
 	if (heartRate) {
 		heartRateData = [['time', 'heart rate'], ...heartRate];
 	}
@@ -51,7 +61,7 @@ function Graph() {
 					chartType='LineChart'
 					data={heartRateData}
 					height='400px'
-					width='100%'
+					width='98%'
 					legendToggle
 					options={options1}
 				/>
@@ -59,7 +69,7 @@ function Graph() {
 					chartType='LineChart'
 					data={bloodOxygenLevelData}
 					height='400px'
-					width='100%'
+					width='98%'
 					options={options2}
 					legendToggle
 				/>

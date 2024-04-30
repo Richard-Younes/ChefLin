@@ -5,7 +5,7 @@ import LoginForm from '../components/LoginForm';
 import styles from './Login.module.css';
 import SpinnerFullPage from '../components/SpinnerFullPage';
 
-export default function Login({ onLogIn }) {
+export default function Login({ setIsLoggedIn }) {
 	const [isLoading, setIsLoading] = useState(false);
 	if (isLoading) return <SpinnerFullPage />;
 	return (
@@ -23,9 +23,9 @@ export default function Login({ onLogIn }) {
 						experience for all.&quot;
 					</blockquote>
 					<LoginForm
-						onLogIn={onLogIn}
 						isLoading={isLoading}
 						setIsLoading={setIsLoading}
+						setIsLoggedIn={setIsLoggedIn}
 					/>
 				</div>
 				<img
